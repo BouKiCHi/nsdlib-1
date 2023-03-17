@@ -7,10 +7,10 @@
 export
 
 TOOL_PASS =	
-INC_PASS =	..\..\include\\
-LIB_PASS =	..\..\lib\\
+INC_PASS =	../../include
+LIB_PASS =	../../lib
 
-include	$(INC_PASS)makefile.mk
+include	$(INC_PASS)/makefile.mk
 
 ########################################
 #;	Source files list
@@ -133,9 +133,13 @@ DBG_FILE   =	$*.dbg
 #;	Build process
 ########################################
 
-.PHONY: all clean
+.PHONY: all clean install
 
 all:	$(PROJ_LIST)
+
+install: all
+	$(MKDIR) ../../bin
+	$(CP) *.bin ../../bin
 
 
 %.bin :	$(FILES)

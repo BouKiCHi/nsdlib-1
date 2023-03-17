@@ -7,10 +7,10 @@
 export
 
 TOOL_PASS =	
-INC_PASS =	..\..\include\\
-LIB_PASS =	..\..\lib\\
+INC_PASS =	../../include
+LIB_PASS =	../../lib
 
-include	$(INC_PASS)makefile.mk
+include	$(INC_PASS)/makefile.mk
 
 ########################################
 #;	Source files list
@@ -128,11 +128,14 @@ $(PROJ_HFE4).lib :	ASFLAGS += $(AHFE4)
 #;	Build process
 ########################################
 
-.PHONY: all clean
+.PHONY: all clean install
 
 
 all:	$(PROJ_LIST)
 
+install: all
+	$(MKDIR) ../../lib
+	$(CP) *.lib ../../lib
 
 %.lib :	$(FILES)
 	$(MAKE) -f MAKEFILE.inc $@

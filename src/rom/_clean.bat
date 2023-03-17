@@ -1,1 +1,1 @@
-make clean
+make -f MAKEFILE clean
